@@ -34,6 +34,7 @@
 
 import { join } from "node:path";
 import { existsSync, readFileSync } from "node:fs";
+import { logLlm } from "./llm-vg.js";
 
 // ─── プラグイン契約: Concordia 内部に依存しない自己完結エンジンにするための型 ─────
 // (ユーザカスタマイズ可能な別フォルダプラグインとして切り出すため、 eventBus /
@@ -1021,6 +1022,17 @@ export class ReactionWorkflowRunner {
       model: plan.model,
       cwd: plan.cwd,
       dangerouslySkipPermissions: true,
+    });
+    // LLM 使用ログ (channel='llm', service='concordia-rwf')。
+    // runHeadless はトークン/コストを返さないため prompt + 結果のみ記録する。
+    logLlm({
+      backend: "claude-headless",
+      model: plan.model ?? "default",
+      kind: plan.action,
+      prompt: plan.prompt,
+      duration_ms: r.duration_ms,
+      ok: r.ok,
+      error: r.ok ? undefined : `exit=${r.exit_code}: ${r.stderr.slice(0, 300)}`,
     });
     if (r.ok) {
       this.deps.log.info(`reaction-workflow: ${plan.action} headless ok (${r.duration_ms}ms)`);
