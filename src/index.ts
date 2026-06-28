@@ -10,3 +10,13 @@
  * 再エクスポートする。
  */
 export * from "./reaction-workflow.js";
+
+// ─── per-workflow モジュール契約 + レジストリ (ReactionWorkFlow/<name>/workflow.ts) ───
+export * from "./contract.js";
+export {
+  buildRegistry,
+  loadWorkflowModulesFromDir,
+  defaultWorkflowsDir,
+  type WorkflowRegistry,
+} from "./registry.js";
+export { clip, buildHead, buildMsgRef } from "./prelude.js";
