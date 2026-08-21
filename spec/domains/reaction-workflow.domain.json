@@ -1,0 +1,14 @@
+{
+  "name": "reaction-workflow",
+  "description": "反応ワークフロー。 契約に沿った反応の登録と実行、 レジストリ。",
+  "presetRules": [],
+  "templateRules": [],
+  "membership": [
+    {
+      "pathPattern": "(^|/)src/(?:reaction-workflow|registry|contract|prelude)(?:\\.test)?\\.ts$"
+    },
+    {
+      "pathPattern": "(^|/)src/ReactionWorkFlow/(?:.*/)?[^/]+$"
+    }
+  ]
+}

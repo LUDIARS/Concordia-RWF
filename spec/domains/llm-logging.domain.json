@@ -1,0 +1,11 @@
+{
+  "name": "llm-logging",
+  "description": "LLM 呼び出しの記録。 Vestigium への出力。",
+  "presetRules": [],
+  "templateRules": [],
+  "membership": [
+    {
+      "pathPattern": "(^|/)src/llm-vg\\.ts$"
+    }
+  ]
+}

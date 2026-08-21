@@ -1,0 +1,14 @@
+{
+  "name": "library-surface",
+  "description": "ライブラリの入口と自動テスト。",
+  "presetRules": [],
+  "templateRules": [],
+  "membership": [
+    {
+      "pathPattern": "(^|/)src/index\\.ts$"
+    },
+    {
+      "pathPattern": "(^|/)tests?/(?:.*/)?[^/]+$"
+    }
+  ]
+}

@@ -2,3 +2,6 @@ node_modules/
 dist/
 *.log
 *.stackdump
+
+# Anatomia のローカル状態 (ドメイン定義の正本は spec/domains/)
+.anatomia/
